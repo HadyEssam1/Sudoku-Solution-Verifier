@@ -16,7 +16,8 @@ public class SingleRowChecker extends Checker {
             int n = grid[row][column];
             if (n >= 1 && n <= 9) {
                 count[n]++;
-            }        }
+            }
+        }
         for (int i=1;i<=9;i++)
         {
             if(count[i]>1)
