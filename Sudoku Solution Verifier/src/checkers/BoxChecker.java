@@ -15,8 +15,8 @@ public class BoxChecker extends Checker {
             int startRow = (box/3)*3;
             int startColumn = (box%3)*3;
 
-            for (int row=0 ; row<startRow+3 ; row++){
-                for(int column=0 ; column<startColumn+3 ; column++){
+            for (int row=startRow ; row<startRow+3 ; row++){
+                for(int column=startColumn ; column<startColumn+3 ; column++){
                     int n = grid[row][column];
                     if (n==0){
                         addError("ROW "+(row+1)+" contains 0 (empty cell)");
@@ -29,9 +29,9 @@ public class BoxChecker extends Checker {
                     count[n]++;
                 }
             }
-            for(int i=0 ; i<9 ; i++){
+            for(int i=1 ; i<=9 ; i++){
                 if (count[i]>1){
-                    addError("Row "+(box+1)+" , #"+i+" , "+ Arrays.deepToString(getBoxArray(startRow,startColumn)));
+                    addError("Box "+(box+1)+" , #"+i+" , "+ Arrays.deepToString(getBoxArray(startRow,startColumn)));
                 }
             }
         }
