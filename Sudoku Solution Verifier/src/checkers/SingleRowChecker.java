@@ -29,7 +29,7 @@ public class SingleRowChecker extends Checker {
                 {
                     if (grid[row][col]==i)
                     {
-                        pos.add(col);
+                        pos.add(col+1);
                     }
                 }
                 addError("ROW " + (row + 1) + ", #" + i + ", " + pos.toString());

@@ -26,7 +26,7 @@ public class SingleColumnChecker extends Checker {
                 {
                     if (grid[row][column]==i)
                     {
-                        pos.add(row);
+                        pos.add(row+1);
                     }
                 }
                 addError("COL " + (column + 1) + ", #" + i + ", " + pos.toString());
