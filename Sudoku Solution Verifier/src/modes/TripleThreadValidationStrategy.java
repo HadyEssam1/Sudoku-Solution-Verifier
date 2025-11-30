@@ -35,6 +35,6 @@ public class TripleThreadValidationStrategy implements ValidationStrategy {
         list.addAll(c.getErrors());
         list.addAll(b.getErrors());
 
-        return List.of();
+        return list;
     }
 }

@@ -51,6 +51,6 @@ public class FullParallelValidationStrategy implements ValidationStrategy {
         for(Checker c:checkers){
             list.addAll(c.getErrors());
         }
-            return List.of();
+            return list;
         }
     }
