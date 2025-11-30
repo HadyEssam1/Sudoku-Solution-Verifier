@@ -49,10 +49,10 @@ public class BoxChecker extends Checker {
         int index = 0;
 
         for (int row = startRow; row < startRow + 3; row++) {
-            for (int col = startColumn; col < startColumn + 3; col++) {
-                if (grid[row][col] == duplicatedValue) {
+            for (int column = startColumn; column < startColumn + 3; column++) {
+                if (grid[row][column] == duplicatedValue) {
                     positions[index][0] = row + 1;
-                    positions[index][1] = col + 1;
+                    positions[index][1] = column + 1;
                     index++;
                  }
             }
