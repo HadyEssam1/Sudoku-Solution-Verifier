@@ -27,15 +27,31 @@ public class SingleBoxChecker extends Checker {
         }
         for (int i=1 ; i<=9 ; i++){
             if (count[i]>1){
-                addError("Box "+(box+1)+" , #"+i+" , "+ Arrays.deepToString(getBoxArray(startRow,startColumn)));
+                addError("Box "+(box+1)+" , #"+i+" , "+ Arrays.deepToString(getBoxArray(startRow,startColumn,i)));
             }
         }
     }
-    public int[][] getBoxArray(int startRow, int startColumn){
-        int[][] box =new int[3][3];
-        for (int row = 0; row <3 ; row++){
-            System.arraycopy(grid[startRow+row] , startColumn , box[row], 0,3 );
+//    public int[][] getBoxArray(int startRow, int startColumn){
+//        int[][] box =new int[3][3];
+//        for (int row = 0; row <3 ; row++){
+//            System.arraycopy(grid[startRow+row] , startColumn , box[row], 0,3 );
+//        }
+//        return box;
+//    }
+    public int[][] getBoxArray(int startRow, int startColumn, int duplicatedValue) {
+
+        int[][] positions = new int[9][2];
+        int index = 0;
+
+        for (int row = startRow; row < startRow + 3; row++) {
+            for (int col = startColumn; col < startColumn + 3; col++) {
+                if (grid[row][col] == duplicatedValue) {
+                    positions[index][0] = row + 1;
+                    positions[index][1] = col + 1;
+                    index++;
+                }
+            }
         }
-        return box;
+        return java.util.Arrays.copyOf(positions, index);
     }
 }
