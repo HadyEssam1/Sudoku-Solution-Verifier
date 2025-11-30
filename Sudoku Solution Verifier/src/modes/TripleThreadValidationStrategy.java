@@ -10,6 +10,7 @@ import java.util.List;
 public class TripleThreadValidationStrategy implements ValidationStrategy {
     @Override
     public List<String> validate(int[][] grid) {
+<<<<<<< HEAD
         RowChecker r=new RowChecker(grid);
         ColumnChecker c=new ColumnChecker(grid);
         BoxChecker b=new BoxChecker(grid);
@@ -35,6 +36,8 @@ public class TripleThreadValidationStrategy implements ValidationStrategy {
         list.addAll(c.getErrors());
         list.addAll(b.getErrors());
 
+=======
+>>>>>>> d8f7905e3a28afb2b1e7d31134475bcf226b8ac5
         return list;
     }
 }

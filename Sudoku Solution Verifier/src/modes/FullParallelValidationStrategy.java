@@ -11,6 +11,7 @@ import java.util.List;
 public class FullParallelValidationStrategy implements ValidationStrategy {
     @Override
     public List<String> validate(int[][] grid) {
+<<<<<<< HEAD
         ArrayList<Thread> threads = new ArrayList<>();
         ArrayList<Checker> checkers = new ArrayList<>();
 
@@ -54,3 +55,8 @@ public class FullParallelValidationStrategy implements ValidationStrategy {
             return list;
         }
     }
+=======
+        return list;
+    }
+}
+>>>>>>> d8f7905e3a28afb2b1e7d31134475bcf226b8ac5

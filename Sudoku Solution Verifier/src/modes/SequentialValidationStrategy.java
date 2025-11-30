@@ -25,6 +25,6 @@ public class SequentialValidationStrategy implements ValidationStrategy {
         list.addAll(b.getErrors());
 
 
-        return List.of();
+        return list;
     }
 }
