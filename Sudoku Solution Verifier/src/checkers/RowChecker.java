@@ -1,5 +1,6 @@
 package checkers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,7 +31,15 @@ public class RowChecker extends Checker {
             {
                 if(count[i]>1)
                 {
-                    addError("ROW " + (row + 1) + ", #" + i + ", " + Arrays.toString(grid[row]));
+                    List<Integer> pos =new ArrayList<>();
+                    for (int col=0;col<9;col++)
+                    {
+                        if (grid[row][col]==i)
+                        {
+                            pos.add(col);
+                        }
+                    }
+                    addError("ROW " + (row + 1) + ", #" + i + ", " + pos.toString());
                 }
             }
         }

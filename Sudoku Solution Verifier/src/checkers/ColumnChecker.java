@@ -1,6 +1,8 @@
 package checkers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ColumnChecker extends Checker{
     public ColumnChecker(int[][] grid) {
@@ -11,11 +13,9 @@ public class ColumnChecker extends Checker{
     public void run() {
         for(int column =0;column<9;column++){
             int[] count=new int[10];
-            int [] arr=new int[9];
             for(int row=0;row<9;row++)
             {
                 int n =grid[row][column];
-                arr[row]=grid[row][column];
                 if(n==0)
                 {
                     addError("COL "+(column+1)+" contains 0 (empty cell)");
@@ -32,7 +32,15 @@ public class ColumnChecker extends Checker{
             {
                 if(count[i]>1)
                 {
-                    addError("COL " + (column + 1) + ", #" + i + ", " + Arrays.toString(arr));
+                    List<Integer> pos =new ArrayList<>();
+                    for (int row=0;row<9;row++)
+                    {
+                        if (grid[row][column]==i)
+                        {
+                            pos.add(row);
+                        }
+                    }
+                    addError("COL " + (column + 1) + ", #" + i + ", " + pos.toString());
                 }
             }
         }
