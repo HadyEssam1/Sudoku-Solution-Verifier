@@ -6,9 +6,11 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class SudokuGrid {
+
     final String path;
     private static SudokuGrid instance;
     int [][] grid;
+
     private SudokuGrid(String path) throws IOException {
         this.path=path;
         grid = new int[9][9];
