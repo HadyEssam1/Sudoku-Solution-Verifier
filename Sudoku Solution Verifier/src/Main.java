@@ -1,15 +1,36 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import factory.ValidationModeFactory;
+import model.SudokuGrid;
+import modes.ValidationStrategy;
+
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        if (args.length<2)
+        {
+            System.out.println("invalid argument");
+            return;
         }
+        try{
+        String path= args[0];
+        int mode=Integer.parseInt(args[1]);
+         SudokuGrid sudokuGrid=SudokuGrid.getInstance(path);
+         ValidationStrategy validationStrategy=ValidationModeFactory.createValidationStrategy(mode);
+         List <String>errors = validationStrategy.validate(sudokuGrid.getGrid());
+         if (errors.isEmpty())
+         {
+             System.out.println("VALID");
+         }
+         else {
+             System.out.println("INVALID");
+             for (String e : errors) {
+                 System.out.println(e);
+             }
+         }
+        }
+        catch (Exception e){
+            System.out.println("Error"+e.getMessage());
+        }
+
     }
-}
+    }

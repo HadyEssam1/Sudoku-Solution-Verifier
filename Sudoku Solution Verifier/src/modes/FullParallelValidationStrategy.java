@@ -28,7 +28,8 @@ public class FullParallelValidationStrategy implements ValidationStrategy {
         }
         for (int i =0;i <= 6;i+=3) {
             for (int j =0;j<= 6;j+= 3) {
-                SingleBoxChecker sbc = new SingleBoxChecker(grid, i, j);
+                int boxIndex = (i / 3) * 3 + (j / 3);
+                SingleBoxChecker sbc = new SingleBoxChecker(grid, boxIndex);
                 checkers.add(sbc);
                 Thread t1 = new Thread(sbc);
                 threads.add(t1);

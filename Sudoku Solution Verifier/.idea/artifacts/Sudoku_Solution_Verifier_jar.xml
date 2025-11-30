@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Sudoku Solution Verifier:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Sudoku_Solution_Verifier_jar</output-path>
+    <root id="archive" name="Sudoku Solution Verifier.jar">
+      <element id="module-output" name="Sudoku Solution Verifier" />
+    </root>
+  </artifact>
+</component>
