@@ -67,22 +67,28 @@ public class SingleBoxChecker extends Checker {
 //        }
 //        return positions;
 //    }
-    public int[] getBoxArray(int startRow, int startColumn, int duplicatedValue) {
 
-        int[] indices = new int[9];
-        int index = 0;
+    public int[] getBoxArray(int startRow, int startColumn, int duplicatedValue) {
+        int original = -1;
+        int duplicate = -1;
         int boxIndex = 1;
 
         for (int row = startRow; row < startRow + 3; row++) {
             for (int column = startColumn; column < startColumn + 3; column++) {
                 if (grid[row][column] == duplicatedValue) {
-                    indices[index] = boxIndex;
-                    index++;
+                    if (original == -1) {
+                        original = boxIndex;
+                    }
+                    else {
+                        duplicate = boxIndex;
+                        return new int[]{original, duplicate};
+                    }
                 }
                 boxIndex++;
             }
         }
-        return java.util.Arrays.copyOf(indices, index);
+        return new int[]{original, duplicate};
     }
+
 
 }
