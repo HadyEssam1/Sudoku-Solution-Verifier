@@ -59,18 +59,35 @@ public class BoxChecker extends Checker {
 //        }
 //        return java.util.Arrays.copyOf(positions, index);
 //    }
+//    public int[] getBoxArray(int startRow, int startColumn, int duplicatedValue) {
+//
+//        int[] positions = new int[9];
+//        int index = 0;
+//
+//        for (int row = startRow; row < startRow + 3; row++) {
+//            for (int column = startColumn; column < startColumn + 3; column++) {
+//                positions[index] = grid[row][column];
+//                index++;
+//            }
+//        }
+//        return positions;
+//    }
     public int[] getBoxArray(int startRow, int startColumn, int duplicatedValue) {
 
-        int[] positions = new int[9];
+        int[] indices = new int[9];
         int index = 0;
-
+        int boxIndex = 1;
         for (int row = startRow; row < startRow + 3; row++) {
             for (int column = startColumn; column < startColumn + 3; column++) {
-                positions[index] = grid[row][column];
-                index++;
+                if (grid[row][column] == duplicatedValue) {
+                    indices[index] = boxIndex;
+                    index++;
+                }
+                boxIndex++;
             }
         }
-        return positions;
+        return java.util.Arrays.copyOf(indices, index);
     }
+
 
 }
