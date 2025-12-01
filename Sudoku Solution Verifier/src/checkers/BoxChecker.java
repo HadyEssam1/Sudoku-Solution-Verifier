@@ -31,7 +31,7 @@ public class BoxChecker extends Checker {
             }
             for(int i=1 ; i<=9 ; i++){
                 if (count[i]>1){
-                    addError("Box "+(box+1)+" , #"+i+" , "+ Arrays.deepToString(getBoxArray(startRow,startColumn,i)));
+                    addError("Box "+(box+1)+", #"+i+" , "+ Arrays.deepToString(getBoxArray(startRow,startColumn,i)));
                 }
             }
         }
